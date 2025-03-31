@@ -1,15 +1,13 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# # Assignment 2 DSC 102 FA23
-
 # ## Introduction
 # 
-# In this assignment we will conduct data engineering for the Amazon dataset. It is divided into 2 parts. The extracted features in Part 1 will be used for the Part 2 of assignment, where you train a model (or models) to predict user ratings for a product.
+# This project conducts data engineering for the Amazon dataset. It is divided into 2 parts. The extracted features in Part 1 will be used for the Part 2, which trains a model (or models) to predict user ratings for a product.
 # 
-# We will be using Apache Spark for this assignment. The default Spark API will be DataFrame, as it is now the recommended choice over the RDD API. That being said, please feel free to switch back to the RDD API if you see it as a better fit for the task. We provide you an option to request RDD format to start with. Also you can switch between DataFrame and RDD in your solution. 
+# We will be using Apache Spark for this project. The default Spark API will be DataFrame, as it is now the recommended choice over the RDD API. That being said, please feel free to switch back to the RDD API if you see it as a better fit for the task. We provide you an option to request RDD format to start with. Also you can switch between DataFrame and RDD in your solution. 
 # 
-# Another newer API is Koalas, which is also avaliable. However, it has constraints and is not applicable to most tasks. Refer to the PA statement for detail.
+# Another newer API is Koalas, which is also avaliable. However, it has constraints and is not applicable to most tasks.
 
 # ### Set the following parameters
 
@@ -94,11 +92,7 @@ import time
 data_dict, _ = data_io.cache_switch(data_dict, 'part_1')
 
 
-# # Task0: warm up 
-# This task is provided for you to get familiar with Spark API. We will use the dataframe API to demonstrate. Solution is given to you and this task won't be graded.
-# 
-# Refer to https://spark.apache.org/docs/latest/api/python/pyspark.sql.html for API guide.
-# 
+# # Task0: 
 # The task is to implement the function below. Given the ```product_data``` table:
 # 1. Take and print five rows.
 # 
@@ -110,7 +104,7 @@ data_dict, _ = data_io.cache_switch(data_dict, 'part_1')
 # 
 # 1. Calculate the mean ```price```.
 # 
-# 1. You need to conduct the above operations, then extract some statistics out of the generated columns. You need to put the statistics in a python dictionary named ```res```. The description and schema of it are as follows:
+# 1. conduct the above operations, then extract some statistics out of the generated columns. You need to put the statistics in a python dictionary named ```res```. The description and schema of it are as follows:
 #     ```
 #     res
 #      | -- count_total: int -- count of total rows of the entire table after your operations
@@ -199,10 +193,7 @@ def task_1(data_io, review_data, product_data):
     # -------------------------------------------------------------------------
 
     # ---------------------- Put results in res dict --------------------------
-    # Calculate the values programmaticly. Do not change the keys and do not
-    # hard-code values in the dict. Your submission will be evaluated with
-    # different inputs.
-    # Modify the values of the following dictionary accordingly.
+  
     res = {
         'count_total': None,
         'mean_meanRating': None,
@@ -368,7 +359,7 @@ print(running_time)
 # In[17]:
 
 
-# %load -s task_3 assignment2.py
+# %load -s task_3 also_viewed products data aggregation
 def task_3(data_io, product_data):
     # -----------------------------Column names--------------------------------
     # Inputs:
@@ -489,7 +480,7 @@ running_time
 # In[24]:
 
 
-# %load -s task_4 assignment2.py
+# %load -s task_4 Missingness Imputation
 def task_4(data_io, product_data):
     # -----------------------------Column names--------------------------------
     # Inputs:
@@ -610,7 +601,7 @@ print(running_time)
 # In[28]:
 
 
-# %load -s task_5 assignment2.py
+# %load -s task_5 
 def task_5(data_io, product_processed_data, word_0, word_1, word_2):
     # -----------------------------Column names--------------------------------
     # Inputs:
@@ -697,7 +688,7 @@ print(running_time)
 # In[32]:
 
 
-# %load -s task_6 assignment2.py
+# %load -s task_6 onehot encoding and PCA
 def task_6(data_io, product_processed_data):
     # -----------------------------Column names--------------------------------
     # Inputs:
@@ -790,7 +781,7 @@ print ("End to end time: {}".format(time.time()-begin))
 data_dict, _ = data_io.cache_switch(data_dict, 'part_2')
 
 
-# # Task 7
+# # Task 7 Model fitting
 
 # In[38]:
 
@@ -852,7 +843,7 @@ running_time = end_time - start_time
 print(running_time)
 
 
-# # Task 8
+# # Task 8: search for best param
 
 # In[42]:
 
