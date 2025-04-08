@@ -171,7 +171,7 @@ if INPUT_FORMAT == 'dataframe':
 # In[8]:
 
 
-# %load -s task_1 assignment2.py
+# %load -s task_1 mean, count aggregation
 def task_1(data_io, review_data, product_data):
     # -----------------------------Column names--------------------------------
     # Inputs:
@@ -252,7 +252,7 @@ print(running_time)
 # In[ ]:
 
 
-# %load -s task_2 assignment2.py
+# %load -s task_2 define function (udf s)
 def task_2(data_io, product_data):
     # -----------------------------Column names--------------------------------
     # Inputs:
